@@ -1,3 +1,4 @@
+
 val scala3Version = "3.6.4"
 
 ThisBuild / organization := "dev.junction-lab"
@@ -5,6 +6,7 @@ ThisBuild / organization := "dev.junction-lab"
 lazy val root = project
   .in(file("."))
   .settings(
+    idePackagePrefix := Some("dev.junction.lab"),
     name := "wealthpocket-server",
     version := "0.1.0",
 
