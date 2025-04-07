@@ -18,6 +18,8 @@ lazy val root = project
       "org.mariadb.jdbc" % "mariadb-java-client" % "3.5.3",
 
       "dev.zio" %% "zio-config" % "4.0.4",
+      "dev.zio" %% "zio-config-magnolia" % "4.0.4",
+      "dev.zio" %% "zio-config-typesafe" % "4.0.4",
 
       "com.auth0" % "java-jwt" % "4.5.0",
 
