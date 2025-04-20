@@ -1,0 +1,16 @@
+package dev.junction.lab
+
+import dev.junction.lab.http.ExpenseController
+import org.scalatra.test.scalatest.*
+
+class ExpenseEntryControllerTests extends ScalatraFunSuite {
+
+  addServlet(classOf[ExpenseController], "/*")
+
+  test("GET / on WealthPocket should return status 200") {
+    get("/") {
+      status should equal (200)
+    }
+  }
+
+}
