@@ -1,4 +1,4 @@
-package dev.junction.lab.model.expenses
+package dev.junction.lab.models.expenses
 
 import java.time.ZonedDateTime
 

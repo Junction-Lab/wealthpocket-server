@@ -1,7 +1,8 @@
-package dev.junction.lab.http
+package dev.junction.lab.controllers
 
-import org.scalatra._
-import dev.junction.lab.model.expenses.{ExpenseEntry, ExpenseData}
+import com.typesafe.config.ConfigFactory
+import org.scalatra.*
+import dev.junction.lab.models.expenses.{ExpenseData, ExpenseEntry}
 
 // JSON-related libraries
 import org.json4s.{DefaultFormats, Formats}
@@ -18,8 +19,8 @@ class ExpenseController extends ScalatraServlet with JacksonJsonSupport:
   before() {
     contentType = formats("json")
   }
-
-  get("/expenses") {
+  
+  get("/") {
     ExpenseData.all
   }
 

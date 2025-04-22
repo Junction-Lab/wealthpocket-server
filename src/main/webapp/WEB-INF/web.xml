@@ -5,11 +5,10 @@
                              web-app_6_0.xsd"
          version="6.0">
 
-  <!--
-    This listener loads a class in the default package called ScalatraBootstrap.
-    That class should implement org.scalatra.LifeCycle.  Your app can be
-    configured in Scala code there.
-  -->
+  <context-param>
+    <param-name>org.scalatra.LifeCycle</param-name>
+    <param-value>dev.junction.lab.WealthPocketBootstrap</param-value>
+  </context-param>
   <listener>
     <listener-class>org.scalatra.servlet.ScalatraListener</listener-class>
   </listener>

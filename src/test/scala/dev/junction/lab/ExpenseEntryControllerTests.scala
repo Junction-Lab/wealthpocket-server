@@ -1,6 +1,6 @@
 package dev.junction.lab
 
-import dev.junction.lab.http.ExpenseController
+import dev.junction.lab.controllers.ExpenseController
 import org.scalatra.test.scalatest.*
 
 class ExpenseEntryControllerTests extends ScalatraFunSuite {

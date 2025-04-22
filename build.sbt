@@ -32,3 +32,5 @@ warForkOptions :=
         "--add-opens=java.base/java.time=ALL-UNNAMED",
       )
     )
+
+warStart / warPort := 8081
