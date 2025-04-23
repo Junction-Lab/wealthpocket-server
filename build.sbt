@@ -1,30 +1,36 @@
+val ScalatraVersion = "3.1.1"
 
-val scala3Version = "3.6.4"
+ThisBuild / scalaVersion := "3.3.5"
+ThisBuild / organization := "net.junction.lab"
 
-ThisBuild / organization := "dev.junction-lab"
-
-lazy val root = project
-  .in(file("."))
+lazy val hello = (project in file("."))
   .settings(
-    idePackagePrefix := Some("dev.junction.lab"),
     name := "wealthpocket-server",
-    version := "0.1.0",
-
-    scalaVersion := scala3Version,
-
+    version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-      "dev.zio" %% "zio-http" % "3.2.0",
-      "dev.zio" %% "zio-json" % "0.7.39",
+      "ch.qos.logback" % "logback-classic" % "1.5.6" % Runtime,
+      "com.typesafe" % "config" % "1.4.3",
 
-      "io.getquill" %% "quill-jdbc-zio" % "4.8.6",
-      "org.mariadb.jdbc" % "mariadb-java-client" % "3.5.3",
+      "org.json4s"   %% "json4s-jackson" % "4.0.7",
+      "org.scalatra" %% "scalatra-jakarta" % ScalatraVersion,
+      "org.scalatra" %% "scalatra-json-jakarta" % ScalatraVersion,
+      "org.scalatra" %% "scalatra-scalatest-jakarta" % ScalatraVersion % Test,
 
-      "dev.zio" %% "zio-config" % "4.0.4",
-
-      "com.auth0" % "java-jwt" % "4.5.0",
-
-      "org.scalameta" %% "munit" % "1.1.0" % Test,
-      "com.h2database" % "h2" % "2.3.232" % Test,
-      "org.slf4j" % "slf4j-simple" % "2.0.17" % Test,
-    )
+      "jakarta.servlet" % "jakarta.servlet-api" % "6.0.0" % Provided,
+    ),
   )
+
+enablePlugins(SbtTwirl)
+enablePlugins(SbtWar)
+
+Test / fork := true
+
+warForkOptions :=
+  ForkOptions()
+    .withRunJVMOptions(
+      Vector(
+        "--add-opens=java.base/java.time=ALL-UNNAMED",
+      )
+    )
+
+warStart / warPort := 8081
