@@ -1,7 +1,7 @@
 package dev.junction.lab
 
 import com.typesafe.config.ConfigFactory
-import dev.junction.lab.controllers.ExpenseController
+import dev.junction.lab.controllers.TransactionController
 import jakarta.servlet.*
 import org.scalatra.*
 
@@ -12,7 +12,7 @@ class WealthPocketBootstrap extends LifeCycle:
     val port = config.getString("server.port")
 
     context.setInitParameter(ScalatraBase.PortKey, port)
-    context.mount(new ExpenseController, "/expenses/*")
+    context.mount(new TransactionController, "/transactions/*")
   end init
 
 end WealthPocketBootstrap

@@ -1,3 +1,6 @@
-package dev.junction.lab.models
+package dev.junction.lab.models.users
 
-case class User()
+import java.util.UUID
+
+
+case class User(id: UUID, name: String, username: String, hashedPassword: String)
