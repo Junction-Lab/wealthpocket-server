@@ -3,7 +3,7 @@ val ScalatraVersion = "3.1.1"
 ThisBuild / scalaVersion := "3.3.5"
 ThisBuild / organization := "net.junction.lab"
 
-lazy val hello = (project in file("."))
+lazy val wealthPocket = (project in file("."))
   .settings(
     name := "wealthpocket-server",
     version := "0.1.0-SNAPSHOT",
@@ -30,6 +30,7 @@ warForkOptions :=
     .withRunJVMOptions(
       Vector(
         "--add-opens=java.base/java.time=ALL-UNNAMED",
+        "--add-opens=java.base/java.util=ALL-UNNAMED",
       )
     )
 
